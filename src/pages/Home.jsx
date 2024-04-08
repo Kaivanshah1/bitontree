@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import getCharacters from '../utils/fetchData';
 import Card from '../components/Card';
-import Footer from '../components/Footer';
+import Pagination from '../components/Pagination';
 import Filter from '../components/Filter';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -52,7 +52,7 @@ const Home = () => {
         </div>
       </div>
       <div className='flex justify-center mt-4'>
-        <Footer characters={characters} page={page} setPage={setPage} />
+        <Pagination characters={characters} page={page} setPage={setPage} />
       </div>
     </div>
   );
