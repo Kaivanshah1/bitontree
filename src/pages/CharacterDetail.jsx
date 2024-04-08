@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
-
 const CharacterDetails = () => {
   const { characterId } = useParams();
   const [character, setCharacter] = useState();
@@ -23,13 +22,12 @@ const CharacterDetails = () => {
     fetchData();
   }, [characterId]);
 
-  if (!character) {
-    return <p className='text-center'>Loading...</p>;
-  }
-
   return (
     <>
-      <Navbar/>  
+    <Navbar/>
+    { !character ? (
+          <p className='text-center'>Loading...</p>
+        ) : (
     <div className='flex justify-center'>
     <div className='flex flex-col'>
     <h2 className='font-extrabold text-xl ml-20 mb-4'>{character.name}</h2>
@@ -49,6 +47,8 @@ const CharacterDetails = () => {
       </div>
     </div>
     </div>
+        )
+      }
     </>
   );
 };
