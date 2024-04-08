@@ -24,7 +24,7 @@ const Home = () => {
       });
   }, [api]);
 
-  const filteredCharacters = characters.filter(character =>
+  const filteredCharacters = characters && characters.filter(character =>
     character.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -36,7 +36,7 @@ const Home = () => {
           <Filter setStatus={setStatus} setGender={setGender} />
         </div>
         <div className='mx-auto'>
-          {!characters ? (
+          {!filteredCharacters ? (
             <p>No Character Found</p>
           ) : (
             <div className='flex flex-row gap-20 mx-auto '>
